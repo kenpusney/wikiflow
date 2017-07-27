@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require './init'
-require './indexing'
-require './wiki_init'
+require 'init'
+require 'indexing'
+require 'wiki_init'
 
 require 'fileutils'
 require 'webrick'
