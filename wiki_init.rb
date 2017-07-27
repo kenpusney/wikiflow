@@ -23,7 +23,7 @@ end
 def cleanup
     FileUtils.rm_rf("cnmd/.", secure: true)
     FileUtils.rm("CNAME", force: true)
-    FileUtils.rm(Dir["*.json"], force: true)
+    FileUtils.rm_rf("data/.", secure: true)
 end
 
 def prompt(opts, key, hint)
