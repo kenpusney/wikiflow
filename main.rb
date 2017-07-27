@@ -37,7 +37,13 @@ command :new do |lst|
 end
 
 command :index do |lst|
-    File.write('indexing.json', indexing(Dir['**/*.cn.md']))
+    FileUtils.mkdir_p("data")
+    File.write('data/indexing.json', indexing(Dir['**/*.cn.md']))
+end
+
+command :hash do |lst|
+    FileUtils.mkdir_p("data")
+    File.write('data/hashing.json', hashing(Dir["**/*.cn.md"]))
 end
 
 command :serve do |lst|
@@ -45,10 +51,6 @@ command :serve do |lst|
     Signal.trap("INT") { s.shutdown }
     Signal.trap("TERM") { s.shutdown }
     s.start
-end
-
-command :hash do |lst|
-    File.write('hashing.json', hashing(Dir["**/*.cn.md"]))
 end
 
 command :init do |lst|
